@@ -122,6 +122,16 @@ static const epd_panel_desc_t panel_registry[EPD_PANEL_COUNT] = {
         .ctrl = EPD_CTRL_BWRY_4COLOR,
         .init_data = NULL,
     },
+    [EPD_PANEL_GDEY029T71H] = {
+        .name = "GDEY029T71H",
+        .width = 168, .height = 384,
+        .color_mode = EPD_COLOR_BW, .bits_per_pixel = 1,
+        .caps = EPD_CAP_PARTIAL | EPD_CAP_FAST,
+        .ctrl = EPD_CTRL_SSD16XX,
+        .source_shift_bytes = 1,
+        .fast_full_update = true,
+        .init_data = NULL,
+    },
 
     // Generic SSD16xx BW panels (same controller, different sizes)
     [EPD_PANEL_SSD16XX_154] = {
