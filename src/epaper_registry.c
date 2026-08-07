@@ -131,6 +131,7 @@ static const epd_panel_desc_t panel_registry[EPD_PANEL_COUNT] = {
         .source_shift_bytes = 1,
         .fast_full_update = false,
         .ssd1685_partial = true,
+        .full_refresh_interval = 5,
         .init_data = NULL,
     },
 
