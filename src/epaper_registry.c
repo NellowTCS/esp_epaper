@@ -129,7 +129,8 @@ static const epd_panel_desc_t panel_registry[EPD_PANEL_COUNT] = {
         .caps = EPD_CAP_PARTIAL | EPD_CAP_FAST,
         .ctrl = EPD_CTRL_SSD16XX,
         .source_shift_bytes = 1,
-        .fast_full_update = true,
+        .fast_full_update = false,
+        .ssd1685_partial = true,
         .init_data = NULL,
     },
 

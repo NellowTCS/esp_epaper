@@ -41,6 +41,7 @@ typedef struct {
     epd_controller_type_t ctrl;     // Controller type
     uint8_t source_shift_bytes;     // GDDRAM X window offset in bytes (GDEY029T71H: 1)
     bool fast_full_update;          // SSD1685 fast full update: bypass RED + temp override
+    bool ssd1685_partial;           // SSD1685 partial: 0x21=(0x00,0x00) + 0x22=0xDC
     const void *init_data;          // Panel-specific init data (LUT, etc.)
 } epd_panel_desc_t;
 

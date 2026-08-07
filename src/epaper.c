@@ -302,6 +302,9 @@ esp_err_t epd_sleep(epd_handle_t handle)
 
     epd_device_t *dev = handle;
     if (dev->ops->sleep) {
+        // Deep sleep clears GDDRAM, so the base image for partial updates is
+        // lost; the next partial update must re-establish it with a full refresh.
+        dev->partial_ready = false;
         dev->initialized = false;
         return dev->ops->sleep(dev);
     }
@@ -317,6 +320,9 @@ esp_err_t epd_wake(epd_handle_t handle)
         esp_err_t ret = dev->ops->wake(dev);
         if (ret == ESP_OK) {
             dev->initialized = true;
+            // Wake re-initializes the panel and clears GDDRAM, so the next
+            // partial update must re-establish the base with a full refresh.
+            dev->partial_ready = false;
         }
         return ret;
     }
